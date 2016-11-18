@@ -5,15 +5,16 @@
 
 class actor
 {
-protected:
+public:
 	std::string name;
-	int health, health_max;
-	int moves, moves_max;
-	int level;
-	int xp, xp_nextLevel;
+	int health=100, health_max=100;
+	int moves=100, moves_max=100;
+	int level=1;
+	int xp=0, xp_nextLevel=1000;
 	position pos;
 public:
-	actor(position);
+	actor(string, position);
+	actor();
 };
 
 #endif

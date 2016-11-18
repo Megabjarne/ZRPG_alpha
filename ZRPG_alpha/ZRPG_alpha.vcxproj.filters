@@ -16,6 +16,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
+    <Text Include="Todos.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -54,6 +55,9 @@
     <ClInclude Include="Commands.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -71,11 +75,31 @@
     <ClCompile Include="Logging.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WorldInitializer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Interface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Initializer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Area.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ZRPG_alpha.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

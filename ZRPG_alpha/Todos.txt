@@ -1,0 +1,12 @@
+
+------------ ADD ------------
+Containers
+Affects
+Controllers
+Items
+Attributes
+Combat
+
+
+------------ IMPLEMENT ------------
+everything

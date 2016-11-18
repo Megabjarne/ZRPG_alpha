@@ -4,6 +4,7 @@
 #include <list>
 #include <string>
 #include "Interface.h"
+#include "Logging.h"
 using namespace std;
 
 //forward declaration

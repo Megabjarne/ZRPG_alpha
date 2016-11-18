@@ -31,22 +31,21 @@ void handleInput()
 	}
 }
 
+actor tempPlayer("Thomas",position(0,0,0));
+
 int main()
 {
 	log_startEmpty();
 	init_commands();
+	init_areas(&WORLD);
 	thread inputThread(handleInput);
-	time_t lastTime,tempTime;
-	time(&lastTime);
+	//time_t lastTime;
+	//time(&lastTime);
+	//difftime(time_t,time_t) gir sekunder
 	while (true) {
-		time(&tempTime);
-		if (difftime(tempTime,lastTime) > 5) {
-			cout << "Tic"<<endl;
-			time(&lastTime);
-		}
 		if (inputBufferLock.exchange(true) == false) {
 			if (inputBuffer.size() > 0) {
-				interpret_command(inputBuffer.front(),NULL,&WORLD);
+				interpret_command(inputBuffer.front(),&tempPlayer,&WORLD);
 				inputBuffer.pop_front();
 			}
 		}

@@ -96,7 +96,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -127,7 +127,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -143,6 +143,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
+    <Text Include="Todos.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor.h" />
@@ -153,24 +154,33 @@
     <ClInclude Include="Logging.h" />
     <ClInclude Include="movement.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="Initializer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Actor.cpp" />
+    <ClCompile Include="Area.cpp" />
+    <ClCompile Include="Commands.cpp" />
     <ClCompile Include="Interface.cpp" />
     <ClCompile Include="Interpreter.cpp" />
     <ClCompile Include="Logging.cpp" />
     <ClCompile Include="movement.cpp" />
+    <ClCompile Include="Object.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="WorldInitializer.cpp" />
+    <ClCompile Include="Initializer.cpp" />
+    <ClCompile Include="World.cpp" />
     <ClCompile Include="ZRPG_alpha.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ZRPG_alpha.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

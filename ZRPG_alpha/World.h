@@ -2,6 +2,7 @@
 #define _world_h
 #include "Actor.h"
 #include "Area.h"
+#include <list>
 #include <vector>
 
 using namespace std;
@@ -9,8 +10,8 @@ using namespace std;
 class world
 {
 private:
-	vector<actor> actor_list;
-	vector<area> area_list;
+	list<actor*> actor_list;
+	list<area*> area_list;
 public:
 	void add_actor(actor*);
 	void add_area(area*);

@@ -1,5 +1,5 @@
 #include "Interpreter.h"
-#include "Logging.h"
+
 
 //--------------------------Structures--------------------------
 //initializer for the command structure
@@ -18,7 +18,6 @@ void interpret_command(string commandString, actor* ch, world* wr) {
 	bool multiples = false; //wether multiple partial matches have been found
 	//search for command with given commandkey in commandlist
 	for (auto i = command_list.begin(); i != command_list.end(); i++) {
-		console_write("comparing: "s + i->commandWord + "  "s + commandKey);
 		//if commandkey matches a command exactly, execute instantly
 		if (string_exactMatch(i->commandWord, commandKey)) {
 			foundCommand = &(*i);
