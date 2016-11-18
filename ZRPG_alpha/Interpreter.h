@@ -3,6 +3,7 @@
 
 #include <list>
 #include <string>
+#include <vector>
 #include "Interface.h"
 #include "Logging.h"
 using namespace std;
@@ -34,5 +35,9 @@ bool string_exactMatch(string s, string t);
 bool string_startsWith(string,string);
 //fuses two strings
 string string_combine(string, string);
-
+//strings to uppercase
+string to_upper(string);
+//strings to lowercase
+string to_lower(string);
+vector<string> string_split(string);
 #endif

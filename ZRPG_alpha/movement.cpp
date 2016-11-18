@@ -4,26 +4,33 @@ void position::move(char c) {
 	switch (c)
 	{
 	default:
+		log_write("Unknown move-char: '" + to_string(c) + "'");
 		break;
-	case 'n':
+	case 'N':
 		Y++;
 		break;
-	case 's':
+	case 'S':
 		Y--;
 		break;
-	case 'e':
+	case 'E':
 		X++;
 		break;
-	case 'w':
+	case 'W':
 		X--;
 		break;
-	case 'u':
+	case 'U':
 		Height++;
 		break;
-	case 'd':
+	case 'D':
 		Height--;
 		break;
 	}
+}
+
+position position::cmove(char c) {
+	position temp(X, Y, Height);
+	temp.move(c);
+	return temp;
 }
 
 position::position(int _x, int _y, int _h) :X(_x), Y(_y), Height(_h) {}

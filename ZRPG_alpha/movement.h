@@ -7,6 +7,7 @@ struct position
 	int X, Y, Height;
 
 	void move(char);
+	position cmove(char); //create copy, move it and return it
 	position(int, int, int);
 	position();
 };

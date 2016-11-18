@@ -22,6 +22,7 @@ area* world::get_area(position _pos) {
 			return *i;
 		}
 	}
+	return NULL;
 }
 void world::world_tic() {};
 void world::actor_tic() {};

@@ -4,6 +4,7 @@
 #include "movement.h"
 #include <vector>
 #include <string>
+#include "Interpreter.h"
 using namespace std;
 
 class area
@@ -16,7 +17,9 @@ class area
 
 	area(string, string, position, vector<object>);
 	exits get_exits();
+	string objectsDescription();
 	bool is_exit(char);
+	vector<object*> get_objects(string);
 };
 
 #endif

@@ -1,1 +1,1 @@
-command used: look
+command used: LOOK

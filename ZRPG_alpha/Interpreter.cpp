@@ -13,6 +13,7 @@ list<command> command_list;
 
 //goes through list to find fitting command
 void interpret_command(string commandString, actor* ch, world* wr) {
+	commandString = to_upper(commandString);
 	string commandKey = string_firstWord(commandString);
 	command* foundCommand = NULL;
 	bool multiples = false; //wether multiple partial matches have been found
@@ -41,6 +42,7 @@ void interpret_command(string commandString, actor* ch, world* wr) {
 		log_write("command used: "  +foundCommand->commandWord);
 		foundCommand->commandFunction(wr, ch, string_removeFirstWord(commandString)); //calls function and gives the rest of the commandstring
 	} else {
+		console_write("would you like to spellcheck that first maybe?");
 		log_write("no fitting command found for: " + commandString);
 	}
 }
@@ -74,7 +76,7 @@ string string_removeFirstWord(string s) {
 
 bool string_exactMatch(string s, string t) {
 	if (s.size() != t.size()) { return false; }
-	for (int i = 0; i < s.size(); i++) {
+	for (unsigned int i = 0; i < s.size(); i++) {
 		if (s[i] != t[i]) {
 			return false;
 		}
@@ -84,7 +86,7 @@ bool string_exactMatch(string s, string t) {
 
 bool string_startsWith(string s, string t) {
 	if (t != "" && (t.size()<=s.size())) {
-		for (int i = 0; i < t.size(); i++) {
+		for (unsigned int i = 0; i < t.size(); i++) {
 			if (t[i] != s[i]) {
 				return false;
 			}
@@ -97,4 +99,45 @@ bool string_startsWith(string s, string t) {
 string string_combine(string s1, string s2) {
 	s1.append(s2);
 	return s1;
+}
+
+string to_lower(string s) {
+	for (unsigned int i = 0; i < s.size(); i++) {
+		if (s[i] >= 65 && s[i] <= 90) { //if in uppercase-range
+			s[i] += 32;					//move up to lowercase-range
+		}
+	}
+	return s;
+}
+
+string to_upper(string s) {
+	for (unsigned int i = 0; i < s.size(); i++) {
+		if (s[i] >= 97 && s[i] <= 122) {
+			s[i] -= 32;
+		}
+	}
+	return s;
+}
+
+vector<string> string_split(string s) {
+	vector<string> tempList;
+	int start = 0;
+	bool insideApostrophe = false;
+	for (unsigned int i = 0; i < s.size(); i++) {
+		if (s[i] == '\'' || s[i] == '\"') {
+			if (!insideApostrophe) {
+				start = i + 1;
+			} else {
+				tempList.push_back(s.substr(start, i - start - 1));
+				start += 2;
+			}
+			insideApostrophe = !insideApostrophe;
+		}
+		if (s[i] == ' ' && !insideApostrophe) {
+			tempList.push_back(s.substr(start, i - start));
+			start = i + 1;
+		}
+	}
+	tempList.push_back(s.substr(start,s.size()-start));
+	return tempList;
 }

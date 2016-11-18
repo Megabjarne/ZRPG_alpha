@@ -19,7 +19,8 @@ private:
 public:
 	string name;
 	string description_look;
-	object(string _name, string _description_look, exits _exitlist);
+	string location_look;
+	object(string _name, string _description_look, string _location_look, exits _exitlist);
 public:
 	exits get_exits();
 	void set_exits(exits);
